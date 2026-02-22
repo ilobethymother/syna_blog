@@ -1,0 +1,210 @@
+/* --- Root Variables --- */
+:root {
+  --bg-color: #ff99aa;
+  --text-color: #2e1a47;
+  --dropdown-bg: #ffb3c1; /* A slightly lighter pink for the dropdown */
+  --serif-font: "Playfair Display", serif;
+}
+
+/* --- Global Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--serif-font);
+  padding: 5vw;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Global Link Hover --- */
+a:hover {
+  text-decoration: underline !important;
+}
+
+/* --- Header Section --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8vh;
+  position: relative;
+  overflow: visible !important;
+  z-index: 1000;
+}
+
+.logo-text {
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  margin-left: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* --- Dropdown Menu (Lighter Background) --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.dropdown .nav-link {
+  margin-left: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent; /* Lighter than main bg */
+  min-width: 220px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  z-index: 9999;
+  padding: 15px 0;
+  box-shadow: none; /* Subtle shadow for depth */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #50386c;
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+}
+
+.dropdown-content a:hover {
+  text-decoration: underline !important;
+  opacity: 0.7;
+}
+
+/* --- Post Content Styling --- */
+.single-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.post-title {
+  font-size: clamp(2rem, 2.5vw, 3.5rem);
+  font-weight: 400;
+  font-style: italic;
+  text-transform: lowercase;
+  margin-bottom: 15px;
+}
+
+.post-meta {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* --- Image Box (80% and Centered) --- */
+.post-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4vh;
+}
+
+.image-box {
+  width: 100%; /* Consistent with assignments page */
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  display: block;
+}
+
+.post-date {
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8vh;
+  border-bottom: 1px solid rgba(46, 26, 71, 0.2);
+  padding-bottom: 4vh;
+  width: 80%;
+}
+
+/* --- Navigation --- */
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10vh;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* --- Blog Text Area --- */
+.blog-text-content {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto 15vh auto;
+  font-size: 1.1rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 850px) {
+  .image-box {
+    width: 100%;
+  }
+  .dropdown {
+    margin-left: 0;
+  }
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
