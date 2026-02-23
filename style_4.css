@@ -127,7 +127,7 @@ header {
   font-size: clamp(2rem, 2.5vw, 3.5rem);
   font-weight: 400;
   font-style: italic;
-  text-transform: lowercase;
+
   margin-bottom: 15px;
 }
 

@@ -16,18 +16,16 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--serif-font);
-  padding: 5vw;
+  padding: 3vw 5vw;
   min-height: 100vh;
 }
 
+/* Ensure the container doesn't cut off the dropdown */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-/* --- Global Link Hover --- */
-a:hover {
-  text-decoration: underline !important;
+  position: relative;
+  overflow: visible;
 }
 
 /* --- Header Section --- */
@@ -36,6 +34,9 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8vh;
+  position: relative;
+  z-index: 1000;
+  overflow: visible; /* CRITICAL: Allows dropdown to be seen */
 }
 
 .logo-text {
@@ -48,6 +49,7 @@ header {
 .top-nav {
   display: flex;
   align-items: center;
+  overflow: visible;
 }
 
 .nav-link {
@@ -60,79 +62,127 @@ header {
   font-weight: bold;
 }
 
-/* --- About Layout --- */
-.about-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 6vw;
+.nav-link:hover {
+  text-decoration: underline;
 }
 
-/* --- Image Side (Left) --- */
-.about-image-box {
-  flex: 0 0 40%;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
+/* --- Dropdown Menu Fix --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 30px;
+}
 
-  position: sticky; /* Keep image visible as you read the long text */
-  top: 5vh;
+/* Removing the margin from the link inside the dropdown to avoid double-spacing */
+.dropdown .nav-link {
+  margin-left: 0;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: var(--bg-color); /* Matches page background */
+  min-width: 200px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Show the dropdown when hovering over the container */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.dropdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* --- About Section Layout --- */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5vw;
+  align-items: start;
+}
+
+.about-image-box {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
 }
 
 .about-image-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   display: block;
 }
 
-/* --- Text Side (Right) --- */
+/* --- Text Content --- */
 .about-text-content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .about-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-style: italic;
-  text-transform: lowercase;
-  margin-bottom: 4vh;
+  font-weight: 400;
+  margin-bottom: 3vh;
+  /* Case is now determined by your HTML */
 }
 
-.about-paragraph {
-  font-size: 1.05rem;
-  color: #000000;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-  line-height: 1.8;
-}
-
-/* Added spacing between your paragraphs */
 .about-paragraph p {
-  margin-bottom: 2rem;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-/* --- Responsive Layout --- */
+/* --- Responsive View --- */
 @media (max-width: 900px) {
   .about-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 5vh;
-  }
-
-  .about-image-box {
-    width: 90%;
-    flex: none;
-    position: relative;
-    top: 0;
-  }
-
-  .about-text-content {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 
   header {
     flex-direction: column;
     gap: 20px;
+    text-align: center;
+  }
+
+  .nav-link,
+  .dropdown {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .about-image-box {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .dropdown-content {
+    position: static;
+    transform: none;
+    width: 100%;
+    display: none; /* Still only shows on hover, but in the flow of the page */
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 }
