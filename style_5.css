@@ -116,12 +116,12 @@ header {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 5vw;
-  align-items: start;
+  align-items: center;
 }
 
 .about-image-box {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 9/16; /* Maintains a 9:16 ratio */
   overflow: hidden;
 }
 
