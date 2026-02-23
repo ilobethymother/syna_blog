@@ -198,3 +198,26 @@ h2:hover {
     padding-left: 0;
   }
 }
+
+/* --- Footer Section --- */
+footer {
+  margin-top: 10vh;
+  padding-top: 20px;
+  border-top: 1px solid rgba(46, 26, 71, 0.15);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-contact {
+  text-align: center;
+}
+
+.footer-contact .label {
+  margin-bottom: 10px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
