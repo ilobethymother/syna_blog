@@ -209,3 +209,31 @@ footer {
   gap: 20px;
   justify-content: center;
 }
+
+/* Navigation Alignment Fix */
+.top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.top-nav > * {
+  margin: 0 1.8rem;
+}
+
+.top-nav .nav-link {
+  display: inline-block;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .top-nav {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}

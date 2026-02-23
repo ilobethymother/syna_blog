@@ -9,6 +9,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style_4.css" />
+    <style>
+      /* Navigation Alignment Fix */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+
+      .top-nav > * {
+        margin: 0 1.8rem;
+      }
+
+      .top-nav .nav-link {
+        display: inline-block;
+      }
+
+      .dropdown {
+        display: flex;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        .top-nav {
+          justify-content: center;
+          gap: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -116,13 +145,20 @@
 
             Human-Interest: There are no eyewitnesses or quotes. Without
             invading privacy, the report could have included a segment on the
-            family or the academic institution’s response. In conclusion, the
-            report meets the minimum standards of crime reporting: it is
-            factual, objective, and brief. However, it ends there. By strictly
-            adhering to the FIR and avoiding broader contextual inquiry, the
-            report informs without critically examining the case.<br /><br />
+            family or the academic institution’s response.<br /><br />
+
+            In conclusion, the report meets the minimum standards of crime
+            reporting: it is factual, objective, and brief. However, it ends
+            there. By strictly adhering to the FIR and avoiding broader
+            contextual inquiry, the report informs without critically examining
+            the case.
           </p>
         </article>
+        <div class="post-image-container">
+          <div class="image-box" style="max-width: 0px;"></div>
+            <img src="Attachments/r-1_bottom.jpeg" alt="Featured Image" />
+          </div>
+        </div>
         <nav class="post-navigation">
           <a href="assignments.html" class="nav-btn">« PREVIOUS SECTION</a>
           <a href="r-2.html" class="nav-btn">NEXT POST »</a>
